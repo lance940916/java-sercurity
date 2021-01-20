@@ -35,21 +35,31 @@ import java.util.Set;
 public class JDKProvideAlgorithms {
 
     public static void main(String[] args) {
+//        Security.addProvider(new BouncyCastleProvider());
         List<String> cryptoServiceNames = Arrays.asList(
                 // used to generate random or pseudo-random numbers.
                 "SecureRandom"
                 // used to calculate the message digest (hash) of specified data.
-                , "MessageDigest"
+//                , "MessageDigest"
                 // initialized with keys, these are used to sign data and verify digital signatures.
                 , "Signature"
                 // initialized with keys, these are used for encrypting/decrypting data.
                 // There are various types of algorithms: symmetric bulk encryption (e.g. AES),
                 //  asymmetric encryption (e.g. RSA), and password-based encryption (e.g. PBE).
 //                , "Cipher"
+//                , "MAC"
                 // used to generate a new pair of public and private keys suitable for use with a specified algorithm.
 //                , "KeyPairGenerator"
                 // used to generate new secret keys for use with a specified algorithm.
 //                , "KeyGenerator"
+//                , "KeyAgreement"
+//                , "AlgorithmParameters"
+//                , "AlgorithmParameterGenerator"
+//                , "KeyStore"
+//                , "CertificateFactory"
+//                , "CertPathBuilder"
+//                , "CertPathValidator"
+//                , "CertStore"
         );
         for (String serviceName : cryptoServiceNames) {
             System.out.println("加密服务名称：" + serviceName);

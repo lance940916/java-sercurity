@@ -1,5 +1,7 @@
 package com.snailwu.security;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import java.security.Provider;
 import java.security.Security;
 
@@ -12,10 +14,13 @@ import java.security.Security;
 public class SecurityProvider {
 
     public static void main(String[] args) {
+        Security.addProvider(new BouncyCastleProvider());
+
         Provider[] providers = Security.getProviders();
         for (Provider provider : providers) {
             System.out.println("提供商名称：" + provider.getName() + "，版本：" + provider.getVersionStr());
             System.out.println(provider.getInfo());
+            System.out.println();
         }
     }
 

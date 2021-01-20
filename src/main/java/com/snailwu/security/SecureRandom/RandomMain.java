@@ -2,6 +2,7 @@ package com.snailwu.security.SecureRandom;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.SecureRandomParameters;
 
 /**
  * @author WuQinglong
@@ -18,7 +19,7 @@ public class RandomMain {
             4、NATIVEPRNGNONBLOCKING // sun.security.provider.NativePRNG.NonBlocking
             5、NATIVEPRNG // sun.security.provider.NativePRNG
         */
-        SecureRandom secureRandom = SecureRandom.getInstance("NATIVEPRNG");
+        SecureRandom secureRandom = new SecureRandom();
         System.out.println("算法：" + secureRandom.getAlgorithm());
         System.out.println("提供商：" + secureRandom.getProvider().getName());
         System.out.println(secureRandom.nextInt());
