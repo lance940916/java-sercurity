@@ -22,10 +22,6 @@ public class Test {
 //            PublicKey publicKey = cert.getPublicKey();
 //
 //        }
-        Double a = 1D;
-        BigDecimal bigDecimal = Optional.ofNullable(a).map(BigDecimal::new).orElse(null);
-        System.out.println(bigDecimal);
-
     }
 
 }
