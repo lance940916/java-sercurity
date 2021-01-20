@@ -1,37 +1,26 @@
 # 加密大王
 
-#### 介绍
-使用Java实现的所有加密算法
+JDKProvideAlgorithms：列出了每个serviceName（服务名？感觉怪怪的）对应的算法实现。
+SecurityProvider：列出了系统中算法的提供商和版本等信息。
 
-#### 软件架构
-软件架构说明
+# Base64编码
+注意，是编码不是加密。
 
+# 安全的随机数 SecureRandom
+常用的有：DRBG、SHA1PRNG、NATIVEPRNG、NATIVEPRNGBLOCKING、NATIVEPRNGNONBLOCKING
 
-#### 安装教程
+# 消息摘要算法
+常用的有：SHA、SHA3、MD5
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# 公钥私钥生成
+常用的有：RSA、DSA
 
-#### 使用说明
+# 密钥生成
+常用的有：AES、DES、HMACMD5、HMACSHA1/HMACSHA224/HMACSHA256/HMACSHA384/HMACSHA512
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# 加签验签
+常用的有：SHA1WITHRSA/SHA512WITHRSA、SHA1WITHDSA/SHA512WITHECDSA、MD5WITHRSA
 
-#### 参与贡献
+# 加密解密
+常用的有：AES、RSA
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

@@ -35,6 +35,7 @@ import java.util.Set;
 public class JDKProvideAlgorithms {
 
     public static void main(String[] args) {
+        // 添加三方算法
 //        Security.addProvider(new BouncyCastleProvider());
         List<String> cryptoServiceNames = Arrays.asList(
                 // used to generate random or pseudo-random numbers.
