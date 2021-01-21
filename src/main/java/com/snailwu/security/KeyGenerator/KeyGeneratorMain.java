@@ -52,7 +52,7 @@ public class KeyGeneratorMain {
         // 128位，192位，256位。AES128 性能高，安全性低；AES256 性能低，安全性高，成正比。
         // AES 密钥，填充，模式
         generate("AES", 256);
-//        generate("DES", null);
+//        generate("HMACMD5", null);
     }
 
 }
