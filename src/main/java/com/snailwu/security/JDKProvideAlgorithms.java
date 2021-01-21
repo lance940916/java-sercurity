@@ -43,11 +43,11 @@ public class JDKProvideAlgorithms {
                 // used to calculate the message digest (hash) of specified data.
 //                , "MessageDigest"
                 // initialized with keys, these are used to sign data and verify digital signatures.
-                , "Signature"
+//                , "Signature"
                 // initialized with keys, these are used for encrypting/decrypting data.
                 // There are various types of algorithms: symmetric bulk encryption (e.g. AES),
                 //  asymmetric encryption (e.g. RSA), and password-based encryption (e.g. PBE).
-//                , "Cipher"
+                , "Cipher"
 //                , "MAC"
                 // used to generate a new pair of public and private keys suitable for use with a specified algorithm.
 //                , "KeyPairGenerator"

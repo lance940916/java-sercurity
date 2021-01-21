@@ -8,6 +8,8 @@ import java.security.Security;
 /**
  * Java加密算法的提供商
  *
+ * https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html
+ *
  * @author WuQinglong
  * @date 2021/1/18 14:24
  */
