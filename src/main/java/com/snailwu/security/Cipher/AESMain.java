@@ -11,6 +11,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * AES 对称加密
+ * 加速速度快，适合对接口的参数进行加解密，缺点就是密钥的传输比较麻烦。
  *
  * @author WuQinglong
  * @date 2021/1/19 14:25
@@ -19,8 +20,8 @@ public class AESMain {
 
     public static void main(String[] args) throws Exception {
         String source = "1234567890";
-        String keyAlgorithm = "AES";
-        String cipherAlgorithm = "AES/ECB/PKCS5PADDING";
+        String keyAlgorithm = "DES";
+        String cipherAlgorithm = "DES/ECB/PKCS5PADDING";
 
         // 获取密钥，封装为 SecretKey
         String key = KeyGeneratorMain.generate(keyAlgorithm, null);
