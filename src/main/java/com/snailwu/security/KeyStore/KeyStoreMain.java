@@ -23,7 +23,6 @@ public class KeyStoreMain {
 
     public static void main(String[] args) throws Exception {
         readKeyStore();
-
     }
 
     /**
