@@ -1,13 +1,14 @@
 # 数据安全传输
-
-**使用的是JDK11。**
+SecurityProvider：列出了系统中算法的提供商和版本等信息。
 
 JDKProvideAlgorithms：列出了每个serviceName（服务名？感觉怪怪的）对应的算法实现。
 
-SecurityProvider：列出了系统中算法的提供商和版本等信息。
+**基于 JDK11。**
 
 # Base64编码
-注意，是编码不是加密。
+Base64可以编码一切数据，Base64编码后的长度比原字符串长三分之一倍。
+
+注意编解码时字节转字符或字符转字节时的编码。
 
 # 安全的随机数 SecureRandom
 常用的有：DRBG、SHA1PRNG、NATIVEPRNG、NATIVEPRNGBLOCKING、NATIVEPRNGNONBLOCKING
