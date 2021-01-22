@@ -1,10 +1,10 @@
 package com.snailwu.security.KeyStore;
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.security.*;
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.security.KeyStore;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
 import java.util.Base64;
 
 /**
@@ -21,18 +21,36 @@ import java.util.Base64;
  */
 public class KeyStoreMain {
 
-    public static void main(String[] args) throws KeyStoreException, IOException, UnrecoverableKeyException,
-            NoSuchAlgorithmException, CertificateException {
-        // 获取证书的公钥和私钥
-        KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-        keyStore.load(new FileInputStream("/Users/wu/wu.keystore"), "123456".toCharArray());
-        Key key = keyStore.getKey("wu", "123456".toCharArray());
-        String privateKey = Base64.getEncoder().encodeToString(key.getEncoded());
-        System.out.println("私钥：" + privateKey);
-        Certificate certificate = keyStore.getCertificate("wu");
-        String publicKey = Base64.getEncoder().encodeToString(certificate.getPublicKey().getEncoded());
-        System.out.println("公钥：" + publicKey);
+    public static void main(String[] args) throws Exception {
+        readKeyStore();
 
+    }
+
+    /**
+     * 读取 keyStore 中的公钥和私钥
+     */
+    private static void readKeyStore() throws Exception {
+        // keyStore 文件位置
+        String keyStoreFilePath = "/Users/wu/key.keystore";
+        String keyStorePassword = "123456";
+        String keyAlias = "key-1";
+
+        // 读取 KeyStore
+        KeyStore keyStore = KeyStore.getInstance("PKCS12");
+        keyStore.load(new FileInputStream(keyStoreFilePath), keyStorePassword.toCharArray());
+
+        // 获取私钥
+        Key key = keyStore.getKey(keyAlias, keyStorePassword.toCharArray());
+        byte[] privateKeyBytes = Base64.getEncoder().encode(key.getEncoded());
+        String privateKey = new String(privateKeyBytes, StandardCharsets.UTF_8);
+        System.out.println("私钥：" + privateKey);
+
+        // 获取公钥
+        Certificate certificate = keyStore.getCertificate(keyAlias);
+        byte[] publicKeyBytes = certificate.getPublicKey().getEncoded();
+        byte[] encodeBytes = Base64.getEncoder().encode(publicKeyBytes);
+        String publicKey = new String(encodeBytes, StandardCharsets.UTF_8);
+        System.out.println("公钥：" + publicKey);
     }
 
 }
