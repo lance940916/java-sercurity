@@ -10,8 +10,7 @@ import java.util.Base64;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
- * AES 对称加密
- * 加速速度快，适合对接口的参数进行加解密，缺点就是密钥的传输比较麻烦。
+ * AES 对称加密。加速速度快，适合对接口的参数进行加解密，缺点就是密钥的传输比较麻烦。
  *
  * @author WuQinglong
  * @date 2021/1/19 14:25
