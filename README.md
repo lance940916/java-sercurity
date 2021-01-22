@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/wu0916/java-sercurity.svg?branch=master)](https://travis-ci.com/wu0916/java-sercurity)
+![GitHub](https://img.shields.io/github/license/wu0916/java-sercurity)
 
 # 数据安全传输
 注意区分编码和加解密，注意算法是否可逆。
