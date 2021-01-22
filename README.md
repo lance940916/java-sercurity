@@ -33,7 +33,7 @@ JDK11 提供的有：MD5、SHA-1、SHA-256和SHA3-256等等，具体查阅官方
 官方文档：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#messagedigest-algorithms)
 
 # 带密钥的消息摘要
-依赖于：javax.crypto.Mac 类。
+依赖于 javax.crypto.Mac 类。
 
 功能：弥补消息摘要算法的缺点，在摘要计算中加入密钥参与计算，防止数据和摘要同时被篡改。
 
@@ -41,14 +41,32 @@ JDK11 提供的有：HMACMD5、HMACSHA1、HMACSHA256、HMACSHA3-256等等，具�
 
 官方文档：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#mac-algorithms)
 
-# 公钥私钥生成
-常用的有：RSA、DSA
-
 # 密钥生成
-常用的有：AES、DES、HMACMD5、HMACSHA1/HMACSHA224/HMACSHA256/HMACSHA384/HMACSHA512
+依赖于 javax.crypto.KeyGenerator 类。
+
+功能：借助于 SecureRandom 随机数生成器，生成一个指定长度的密钥。
+
+JDK11 提供的有：AES、DES、HmacSHA1、HmacSHA512等等，具体查阅官方文档。
+
+官方文档：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keygenerator-algorithms)
+
+# 公钥私钥生成
+依赖于 java.security.KeyPairGenerator 类。
+
+功能：生成公钥私钥。
+
+JDK11 提供的有：RSA、DSA和X448等等，具体查阅官方文档。
+
+官方文档：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keypairgenerator-algorithms)
 
 # 加签验签
-常用的有：SHA1WITHRSA/SHA512WITHRSA、SHA1WITHDSA/SHA512WITHECDSA、MD5WITHRSA
+依赖于 java.security.Signature 类。
+
+功能：使用公钥私钥。比如 SHA512withRSA 就是先用 SHA-512 进行消息摘要计算，然后使用 RSA 对摘要进行加密，注意：消息摘要计算是不可逆的。
+
+JDK11 提供的有：SHA1WITHRSA、MD5withRSA和SHA3-512withRSA等等，具体查阅官方文档。
+
+官方文档：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#signature-algorithms)
 
 # 加密解密
 常用的有：AES、RSA
