@@ -18,29 +18,35 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public class AESMain {
 
     public static void main(String[] args) throws Exception {
-        String source = "1234567890";
-        String keyAlgorithm = "DES";
-        String cipherAlgorithm = "DES/ECB/PKCS5PADDING";
+        // 数据
+        String data = "1234567890";
+        // 密钥算法
+        String keyAlgorithm = "AES";
+        // 加密算法
+        String cipherAlgorithm = "AES/ECB/PKCS5PADDING";
 
         // 获取密钥，封装为 SecretKey
         String key = KeyGeneratorMain.generate(keyAlgorithm, null);
-        SecretKey secretKey = new SecretKeySpec(Base64.getDecoder().decode(key), keyAlgorithm);
+        byte[] keyBytes = Base64.getDecoder().decode(key.getBytes(UTF_8));
+        SecretKey secretKey = new SecretKeySpec(keyBytes, keyAlgorithm);
 
         // 加密。对于 AES 来说，默认使用的加密模式是ECB，填充方式为PKCS5Padding
         Cipher cipher = Cipher.getInstance(cipherAlgorithm);
         // 加密模式
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encodeBytes = cipher.doFinal(source.getBytes(UTF_8));
+        byte[] encryptBytes = cipher.doFinal(data.getBytes(UTF_8));
         // Base64 编码输出
-        String encodeStr = Base64.getEncoder().encodeToString(encodeBytes);
+        byte[] encodeBytes = Base64.getEncoder().encode(encryptBytes);
+        String encodeStr = new String(encodeBytes, UTF_8);
         System.out.println("私钥=>公钥：加密：" + encodeStr);
 
         // 解密。必须与加密使用的算法对应！
+        encodeBytes = Base64.getDecoder().decode(encodeStr.getBytes(UTF_8));
         cipher = Cipher.getInstance(cipherAlgorithm);
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decodeBytes = cipher.doFinal(Base64.getDecoder().decode(encodeStr));
-        String decodeStr = new String(decodeBytes, UTF_8);
-        System.out.println("私钥=>公钥：解密：" + decodeStr);
+        byte[] decryptBytes = cipher.doFinal(encodeBytes);
+        String decryptStr = new String(decryptBytes, UTF_8);
+        System.out.println("私钥=>公钥：解密：" + decryptStr);
     }
 
 }
