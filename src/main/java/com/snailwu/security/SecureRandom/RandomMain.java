@@ -1,13 +1,12 @@
 package com.snailwu.security.SecureRandom;
 
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * 用于生成安全场景下的随机数。
- * JDK11 提供的算法：
+ * JDK11支持的有：
  * 1、DRBG（sun.security.provider.DRBG）
  * 2、SHAPRNG（java.security.SecureRandom）
  * 3、NATIVEPRNG（sun.security.provider.NativePRNG）

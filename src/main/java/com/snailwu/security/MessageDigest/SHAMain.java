@@ -8,9 +8,8 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * SHA家族的五个算法：SHA-1、SHA-224、SHA-256、SHA-384、SHA-512。
- * 由美国国家安全局（NSA）所设计，并由美国国家标准与技术研究院（NIST）发布；是美国的政府标准。
  * 后四者有时并称为SHA-2（SHA-224、SHA-256、SHA-384、SHA-512）。
- *
+ * <p>
  * JDK11支持的有：
  * 1、SHA
  * 2、SHA-224
@@ -29,23 +28,27 @@ import java.security.NoSuchAlgorithmException;
  */
 public class SHAMain {
 
+    /**
+     * 计算下载的 apache-tomcat-9.0.41.zip 压缩包的完整性
+     */
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        // 下载页面的 sha512 的值
+        // 官方下载页面提供的 sha512 的值
         String sha512 = "20029f00a64627a0fe9e6b86550d5244418e40cf933ba7ea985713e6cf638b8e13e16b0e3265a5fba1f0c7440e718e42ade4a10fc16d820bb801be1ac4a2aa5d";
         // 将文件读取成 byte 数组
         FileInputStream fis = new FileInputStream("/Users/wu/Downloads/apache-tomcat-9.0.41.zip");
+        // JDK11 中的方法
         byte[] bytes = fis.readAllBytes();
 
-        // 计算 sha512 摘要
+        // 计算摘要，使用 SHA-512 算法
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
         messageDigest.update(bytes);
-        byte[] result = messageDigest.digest();
+        byte[] digestBytes = messageDigest.digest();
         // 转 16 进制表示
-        String encodeResult= new BigInteger(1, result).toString(16);
-        if (sha512.equals(encodeResult)) {
-            System.out.println("文件完整");
+        String hexResult = new BigInteger(1, digestBytes).toString(16);
+        if (sha512.equals(hexResult)) {
+            System.out.println("文件数据完整");
         } else {
-            System.out.println("文件不完整");
+            System.out.println("文件被篡改过！！！");
         }
     }
 
