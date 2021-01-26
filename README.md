@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/wu0916/java-sercurity.svg?branch=master)](https://travis-ci.com/wu0916/java-sercurity)
+![Travis (.com) branch](https://img.shields.io/travis/com/wu0916/java-sercurity/master)
 ![GitHub](https://img.shields.io/github/license/wu0916/java-sercurity)
 
 # 数据安全传输
