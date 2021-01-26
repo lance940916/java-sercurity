@@ -107,4 +107,9 @@ JDK11 提供的有：AES、RSA和RC4等等，具体查阅官方文档。
 
 [官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#certificatefactory-types)也没啥，可以简单看看。
 
-# TODO SSL/TSL
+# SSL/TSL
+
+阅读阮哥的两片文章保证让你明白。
+
+1. [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
+2. [图解SSL/TLS协议](http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html)
