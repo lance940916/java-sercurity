@@ -16,12 +16,16 @@ import java.util.Base64;
 public class CertificateFactoryMain {
 
     public static void main(String[] args) throws Exception {
+        String certFilePath = "/Users/wu/key-1.crt";
+
         // 固定为 X.509 参考：https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#certificatefactory-types
         CertificateFactory factory = CertificateFactory.getInstance("X.509");
-        Certificate certificate = factory.generateCertificate(new FileInputStream("/Users/wu/key-1.crt"));
-        PublicKey publicKey = certificate.getPublicKey();
-        byte[] encodeBytes = Base64.getEncoder().encode(publicKey.getEncoded());
-        System.out.println("公钥：" + new String(encodeBytes, StandardCharsets.UTF_8));
+        try (FileInputStream fis = new FileInputStream(certFilePath)) {
+            Certificate certificate = factory.generateCertificate(fis);
+            PublicKey publicKey = certificate.getPublicKey();
+            byte[] encodeBytes = Base64.getEncoder().encode(publicKey.getEncoded());
+            System.out.println("公钥：" + new String(encodeBytes, StandardCharsets.UTF_8));
+        }
     }
 
 }

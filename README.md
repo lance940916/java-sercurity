@@ -21,6 +21,8 @@ Base64可以编码一切数据，Base64编码后的长度比原字符串长三�
 
 注意编解码时字节转字符或字符转字节时的编码。
 
+关于编码原理可以查看文章 [Base64编码及解码原理](https://www.cnblogs.com/wuqinglong/p/14302285.html)
+
 # 数字生成算法
 依赖于 java.security.SecureRandom 类。
 
@@ -28,7 +30,7 @@ Base64可以编码一切数据，Base64编码后的长度比原字符串长三�
 
 JDK11 提供的有：DRBG、SHA1PRNG、NATIVEPRNG、NATIVEPRNGBLOCKING、NATIVEPRNGNONBLOCKING。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#securerandom-number-generation-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#securerandom-number-generation-algorithms)
 
 # 消息摘要算法
 依赖于 java.security.MessageDigest 类。
@@ -37,7 +39,7 @@ JDK11 提供的有：DRBG、SHA1PRNG、NATIVEPRNG、NATIVEPRNGBLOCKING、NATIVEP
 
 JDK11 提供的有：MD5、SHA-1、SHA-256和SHA3-256等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#messagedigest-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#messagedigest-algorithms)
 
 # 带密钥的消息摘要
 依赖于 javax.crypto.Mac 类。
@@ -46,7 +48,7 @@ JDK11 提供的有：MD5、SHA-1、SHA-256和SHA3-256等等，具体查阅官方
 
 JDK11 提供的有：HMACMD5、HMACSHA1、HMACSHA256、HMACSHA3-256等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#mac-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#mac-algorithms)
 
 # 密钥生成
 依赖于 javax.crypto.KeyGenerator 类。
@@ -55,7 +57,7 @@ JDK11 提供的有：HMACMD5、HMACSHA1、HMACSHA256、HMACSHA3-256等等，具�
 
 JDK11 提供的有：AES、DES、HmacSHA1、HmacSHA512等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keygenerator-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keygenerator-algorithms)
 
 # 公钥私钥生成
 依赖于 java.security.KeyPairGenerator 类。
@@ -64,7 +66,7 @@ JDK11 提供的有：AES、DES、HmacSHA1、HmacSHA512等等，具体查阅官�
 
 JDK11 提供的有：RSA、DSA和X448等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keypairgenerator-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#keypairgenerator-algorithms)
 
 # 加签验签
 依赖于 java.security.Signature 类。
@@ -73,7 +75,7 @@ JDK11 提供的有：RSA、DSA和X448等等，具体查阅官方文档。
 
 JDK11 提供的有：SHA1WITHRSA、MD5withRSA和SHA3-512withRSA等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#signature-algorithms)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#signature-algorithms)
 
 # 加密解密
 依赖于 javax.crypto.Cipher 类。
@@ -84,14 +86,25 @@ JDK11 提供的有：SHA1WITHRSA、MD5withRSA和SHA3-512withRSA等等，具体�
 
 JDK11 提供的有：AES、RSA和RC4等等，具体查阅官方文档。
 
-加密算法：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-names)
+加密算法：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-names)
 
 注意：AES 还有**加密模式**和**填充方式**两个参数。
 
-加密模式：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-modes)
+加密模式：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-modes)
 
-填充方式：[查看](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-paddings)
+填充方式：[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#cipher-algorithm-paddings)
 
-# TODO 数字证书
+# 数字证书
+依赖于 java.security.KeyStore 类。
+
+设计的知识比较多，更多信息查看文章 [证书类型及秘钥库](https://www.cnblogs.com/wuqinglong/p/14330230.html) 和 [keytool生成密钥](https://www.cnblogs.com/wuqinglong/p/14330266.html)。
+
+数字证书是目前很流行的、更安全的数据交换方式。
+
+注意几个点：密钥库类型，密钥类型，密钥库类型的转换，密钥的导入和导出。
+
+学会使用 openssl。
+
+[官方文档](https://docs.oracle.com/en/java/javase/11/docs/specs/security/standard-names.html#certificatefactory-types)也没啥，可以简单看看。
 
 # TODO SSL/TSL
