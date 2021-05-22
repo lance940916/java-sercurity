@@ -34,8 +34,8 @@ public class RSAMain {
         // 私钥加密，公钥解密
         // 获取 PrivateKey 实例，先 Base64 解码。
         byte[] privateKeyBytes = Base64.getDecoder().decode(privateKey1.getBytes(UTF_8));
-        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes, algorithm);
-        KeyFactory keyFactory = KeyFactory.getInstance(pkcs8EncodedKeySpec.getAlgorithm());
+        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(algorithm);
         PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
         // 加密
         Cipher cipher = Cipher.getInstance(privateKey.getAlgorithm());
@@ -47,8 +47,8 @@ public class RSAMain {
 
         // 获取 PublicKey 实例，先 Base64 解码。
         byte[] publicKeyBytes = Base64.getDecoder().decode(publicKey1.getBytes(UTF_8));
-        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKeyBytes, algorithm);
-        keyFactory = KeyFactory.getInstance(x509EncodedKeySpec.getAlgorithm());
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKeyBytes);
+        keyFactory = KeyFactory.getInstance(algorithm);
         PublicKey publicKey = keyFactory.generatePublic(x509EncodedKeySpec);
         // 解密
         cipher = Cipher.getInstance(publicKey.getAlgorithm());

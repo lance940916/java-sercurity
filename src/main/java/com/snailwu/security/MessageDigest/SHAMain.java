@@ -1,5 +1,7 @@
 package com.snailwu.security.MessageDigest;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -36,8 +38,7 @@ public class SHAMain {
         String sha512 = "20029f00a64627a0fe9e6b86550d5244418e40cf933ba7ea985713e6cf638b8e13e16b0e3265a5fba1f0c7440e718e42ade4a10fc16d820bb801be1ac4a2aa5d";
         // 将文件读取成 byte 数组
         FileInputStream fis = new FileInputStream("/Users/wu/Downloads/apache-tomcat-9.0.41.zip");
-        // JDK11 中的方法
-        byte[] bytes = fis.readAllBytes();
+        byte[] bytes = IOUtils.toByteArray(fis);
 
         // 计算摘要，使用 SHA-512 算法
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");

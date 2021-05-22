@@ -20,7 +20,7 @@ public class SecurityProvider {
 
         Provider[] providers = Security.getProviders();
         for (Provider provider : providers) {
-            System.out.println("提供商名称：" + provider.getName() + "，版本：" + provider.getVersionStr());
+            System.out.println("提供商名称：" + provider.getName() + "，版本：" + provider.getVersion());
             System.out.println(provider.getInfo());
             System.out.println();
         }
