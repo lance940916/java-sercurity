@@ -1,5 +1,5 @@
-[![Build Status](https://www.travis-ci.com/lance940916/java-sercurity.svg?branch=master)](https://www.travis-ci.com/lance940916/java-sercurity)
-![GitHub](https://img.shields.io/github/license/lance940916/java-sercurity)
+[![Build Status](https://www.travis-ci.com/wu0916/java-sercurity.svg?branch=master)](https://www.travis-ci.com/wu0916/java-sercurity)
+![GitHub](https://img.shields.io/github/license/wu0916/java-sercurity)
 
 # 数据安全传输
 注意区分编码和加解密，注意算法是否可逆。
@@ -10,7 +10,7 @@ Base64属于编码，不属于加密。
 
 摘要和加签是防止数据被篡改，加密是为了防止数据泄露。
 
-**基于 JDK11。**
+**基于 jdk1.8。**
 
 # Base64编码
 依赖于 java.util.Base64 类。
